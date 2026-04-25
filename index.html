@@ -53,29 +53,132 @@
       overflow-y: auto;
       justify-content: flex-start;
       text-align: center;
-      padding: 40px 28px 36px;
-      gap: 12px;
+      padding: 32px 24px 36px;
+      gap: 14px;
     }
-    #home h1 { font-size: 34px; font-weight: 800; letter-spacing: -1px; }
-    .sub  { color: var(--dim); font-size: 14px; }
-    .divider { width: 100%; height: 1px; background: var(--border); margin: 2px 0; }
-    .desc {
-      color: #374151;
-      font-size: 15px;
-      line-height: 1.75;
-      text-align: left;
+    #home h1 { font-size: 30px; font-weight: 800; letter-spacing: -1px; }
+    .sub  { color: var(--dim); font-size: 13px; }
+
+    /* 응원 배너 */
+    .cheer-banner {
+      font-size: 14px;
+      font-weight: 700;
+      color: #F43F5E;
     }
-    .desc strong { color: var(--blue); }
-    .hint-box {
-      background: var(--panel);
-      border-radius: 12px;
-      padding: 12px 16px;
+
+    /* 유형 배지 */
+    .type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EFF6FF;
+      border: 1.5px solid #BFDBFE;
+      color: var(--blue);
+      border-radius: 20px;
+      padding: 6px 16px;
       font-size: 13px;
-      color: var(--dim);
-      line-height: 1.8;
-      text-align: left;
+      font-weight: 700;
+    }
+
+    /* 시험 정보 스탯 카드 */
+    .stat-row {
+      display: flex;
+      gap: 10px;
       width: 100%;
     }
+    .stat-box {
+      flex: 1;
+      background: var(--panel);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .stat-lbl {
+      font-size: 11px;
+      color: var(--dim);
+      margin-top: 3px;
+    }
+
+    /* 7문장 템플릿 */
+    .section-box {
+      width: 100%;
+      text-align: left;
+    }
+    .section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .template-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .template-table th {
+      background: #F3F4F6;
+      color: #6B7280;
+      font-weight: 700;
+      padding: 7px 8px;
+      text-align: left;
+      border-bottom: 1.5px solid var(--border);
+    }
+    .template-table th:first-child { width: 28px; text-align: center; border-radius: 8px 0 0 0; }
+    .template-table th:last-child  { border-radius: 0 8px 0 0; }
+    .template-table td {
+      padding: 7px 8px;
+      border-bottom: 1px solid var(--border);
+      color: #374151;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .template-table td:first-child {
+      text-align: center;
+      font-weight: 800;
+      color: var(--blue);
+      font-size: 13px;
+    }
+    .template-table td:nth-child(2) {
+      white-space: nowrap;
+      font-weight: 600;
+      font-size: 11px;
+      color: #6B7280;
+      width: 68px;
+    }
+    .template-table tr:last-child td { border-bottom: none; }
+    .template-table tr:nth-child(even) td { background: #FAFAFA; }
+
+    /* 준비 20초 활용 박스 */
+    .prep-tip {
+      width: 100%;
+      background: #FFFBEB;
+      border: 1.5px solid #FDE68A;
+      border-radius: 12px;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    .prep-tip-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #92400E;
+      margin-bottom: 4px;
+    }
+    .prep-tip p {
+      font-size: 12px;
+      color: #78350F;
+      line-height: 1.7;
+    }
+
     .btn-start {
       width: 100%;
       height: 54px;
@@ -131,9 +234,9 @@
 
     /* ── PHOTO CARD ────────────────────────────────────────────────────────── */
     .photo-card {
-      flex: 1;
-      min-height: 0;
       width: 100%;
+      aspect-ratio: 16 / 9;
+      flex-shrink: 0;
       border-radius: 12px;
       overflow: hidden;
       border: 1.5px solid var(--border);
@@ -312,19 +415,88 @@
 
 <!-- ── HOME ─────────────────────────────────────────────────────────────────── -->
 <div id="home" class="screen">
-  <p style="font-size:15px; font-weight:700; color:#F59E0B;">사랑하는 예은아 화이팅! 💛</p>
-  <h1>DET Photo Speaking</h1>
-  <p class="sub">Duolingo English Test · 사진 묘사 연습</p>
-  <div class="divider"></div>
-  <p class="desc">
-    랜덤 사진을 보고 <strong>영어로 묘사</strong>해보세요.<br>
-    <strong>준비 20초</strong> → 자동 녹음 → 듣고 마무리
-  </p>
-  <div class="hint-box">
-    ⏱ 준비 시간: <strong style="color:#374151">20초</strong> — 사진을 보고 말할 내용을 구상하세요<br>
-    🎙 답변 시간: <strong style="color:#374151">최대 90초</strong> — 사진을 묘사하며 자유롭게 말해보세요<br>
-    🖼 매번 새로운 랜덤 사진이 출제됩니다
+  <!-- 응원 배너 -->
+  <p class="cheer-banner">예은아, 넌 이미 잘하고 있어 💕</p>
+
+  <!-- 제목 -->
+  <h1>Speak About the Photo</h1>
+  <p class="sub">Duolingo English Test · Conversation · Production</p>
+
+  <!-- 유형 배지 -->
+  <div class="type-badge">🖼 유형 9 — Speak About the Photo</div>
+
+  <!-- 시험 스탯 -->
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-val">20초</div>
+      <div class="stat-lbl">준비 시간</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">1문제</div>
+      <div class="stat-lbl">출제</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">90초</div>
+      <div class="stat-lbl">답변 시간</div>
+    </div>
   </div>
+
+  <!-- 7문장 템플릿 -->
+  <div class="section-box">
+    <div class="section-title">📋 7문장 템플릿</div>
+    <table class="template-table">
+      <thead>
+        <tr><th>No.</th><th>역할</th><th>핵심 표현</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>장소+주인물</td>
+          <td>This is a picture taken at/in… and this photo depicts…</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>주변 묘사</td>
+          <td>[위치] of this picture, there appears to be…</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>배경 묘사</td>
+          <td>If we look into the background/foreground, we notice…</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>분위기</td>
+          <td>We could probably imagine that this image illustrates a(n) [형용사] atmosphere</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>전체 느낌</td>
+          <td>Overall, this picture seems to be [형용사]</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>마지막 포인트</td>
+          <td>Finally, the last thing that catches my eye is…</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>만능 마무리</td>
+          <td>It is a beautiful photo, so perhaps it was taken by a professional photographer</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 준비 20초 활용 -->
+  <div class="prep-tip">
+    <div class="prep-tip-title">⏱ 준비 20초 활용법</div>
+    <p>
+      처음 10초 — 핵심 키워드 파악 (장소·인물·행동)<br>
+      남은 10초 — 날씨·시간대·분위기 유추
+    </p>
+  </div>
+
   <button class="btn-start" onclick="startApp()">시  작</button>
 </div>
 
@@ -424,18 +596,31 @@ function show(id) {
 
 /* ── PHOTO PRELOAD ─────────────────────────────────────────────────────────── */
 const PHOTO_KEYWORDS = [
-  'people,cafe', 'people,restaurant', 'people,street,city',
-  'people,park,nature', 'people,beach', 'people,market,outdoor',
-  'people,airport', 'people,library', 'people,office,indoor',
-  'people,picnic', 'people,subway', 'people,museum',
-  'people,festival', 'people,farm', 'people,garden',
+  'cafe,interior,customers,sitting',
+  'restaurant,dining,table,group',
+  'coffee,shop,people,background',
+  'street,market,crowd,walking,city',
+  'park,bench,people,trees,outdoor',
+  'beach,people,umbrella,sand,summer',
+  'airport,terminal,travelers,waiting',
+  'library,reading,shelves,people',
+  'office,meeting,colleagues,desk',
+  'subway,station,commuters,platform',
+  'museum,gallery,visitors,artwork',
+  'farmers,market,stalls,shoppers',
+  'classroom,students,learning',
+  'gym,people,exercise,equipment',
+  'supermarket,shopping,aisle,people',
+  'park,playground,families,outdoor',
+  'food,court,people,eating,mall',
+  'train,passengers,seats,window',
 ];
 
 let nextPhotoUrl = null;
 
 function preloadNext() {
   const kw  = PHOTO_KEYWORDS[Math.floor(Math.random() * PHOTO_KEYWORDS.length)];
-  const url = `https://loremflickr.com/800/600/${kw}?lock=${Date.now()}`;
+  const url = `https://loremflickr.com/1200/675/${kw}?lock=${Date.now()}`;
   const img = new Image();
   img.onload  = () => { nextPhotoUrl = url; };
   img.onerror = () => { nextPhotoUrl = null; setTimeout(preloadNext, 3000); };
@@ -456,7 +641,7 @@ function startApp() {
     // 첫 실행이거나 아직 준비 안 됐으면 로딩 화면 표시
     show('load');
     const kw  = PHOTO_KEYWORDS[Math.floor(Math.random() * PHOTO_KEYWORDS.length)];
-    const url = `https://loremflickr.com/800/600/${kw}?lock=${Date.now()}`;
+    const url = `https://loremflickr.com/1200/675/${kw}?lock=${Date.now()}`;
     document.getElementById('rec-photo').src = url;
     const prepPhoto = document.getElementById('prep-photo');
     prepPhoto.onload  = () => { startPrep(); preloadNext(); };
